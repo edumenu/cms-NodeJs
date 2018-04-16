@@ -1,0 +1,69 @@
+<!--
+Created by: Edem Dumenu
+Date: 4/2/2018
+Description: This page is for sending post methods using the form.
+-->
+
+<h1>Edit Post</h1>
+
+{{#each errors}}
+
+    <div class="alert alert-danger">
+
+        {{message}}
+
+    </div>
+
+{{/each}}
+
+<form action="/admin/posts/edit/{{post.id}}?_method=PUT" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input required name="title" type="text" class="form-control" id="title" value="{{post.title}}" >
+    </div>
+
+    <div class="form-group">
+        <label for="file">File Upload</label>
+        <input type="file" name="file" class="form-control" value="{{post.file}}">
+    </div>
+
+    <div class="form-group">
+        <label for="status">Category</label>
+        <select name="category" id="status" class="form-control">
+            {{#select post.category}}   <!-- Selecting the category of the post that was selected -->
+            {{#each categories}}      <!-- Displaying all the categories in the database -->
+
+                <option value="{{id}}">{{name}}</option>
+
+            {{/each}}
+            {{/select}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select name="status" id="status" class="form-control">
+    {{#select post.status}}
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+            <option value="draft">Draft</option>
+    {{/select}}
+        </select>
+    </div>
+
+    <div class="form-check">
+        <label for="allowComments" class="form-check-label">
+                                                        <!-- If there is a value for allowComment, check else don't check-->
+            <input name="allowComments" type="checkbox" {{#if post.allowComments}} checked="checked" {{/if}} class="form-check-input" id="allowComments">
+            Allow Comments
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label for="body">Body</label>
+        <textarea required  name="body" cols="30" rows="10" class="form-control" id="body">{{post.body}}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Update post</button>
+
+</form>

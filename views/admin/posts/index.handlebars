@@ -1,0 +1,50 @@
+<!--
+Created by: Edem Dumenu
+Date: 4/2/2018
+Description: This page displays all posts from the database
+-->
+
+<h1>ALL POSTS</h1>
+<!-- Success message-->
+{{> home/form-msgs}}
+
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
+    <thead  class="thead-dark">
+    <tr>
+        <th>Id</th>
+        <th>File</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Category</th>
+        <th>Allow Comments</th>
+        <!--<th>View Post</th>-->
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <!-- Looping through all the posts-->
+    {{#each posts}}
+
+        <tr>
+            <td>{{id}}</td>
+            <td><img height="70px" class="img-responsive" src="/uploads/{{file}}" alt=""></td>
+            <td>{{title}}</td>
+            <td>{{status}}</td>
+            <td>{{category.name}}</td>
+            <td>{{allowComments}}</td>
+            <td>{{generateDate date 'MMMM Do YYYY'}}</td> <!--date: first parameter, 'MMMM Do YYYY': second parameter. The format of the date -->
+            <!-- Obtaining the post id when user clicks the edit button-->
+            <td><a href="/admin/posts/edit/{{id}}" class="btn btn-success">Edit</a></td>
+            <td><form action="/admin/posts/{{id}}?_method=DELETE" method="post">
+                <button type="submit" class="btn-danger">Delete</button>
+            </form></td>
+        </tr>
+    {{/each}}
+    <!-- End of loop-->
+    </tbody>
+</table>
+</div>
