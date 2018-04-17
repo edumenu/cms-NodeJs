@@ -85,7 +85,7 @@ router.post('/register', (req, res)=>{
             bcrypt.hash(newUser.password, salt, (err, hash)=>{
                 newUser.password = hash;
                 newUser.save().then(savedUser=>{
-                    req.flash('success_message', 'You are not registered, please login');
+                    req.flash('success_message', 'You are now registered, please login');
                     res.redirect('/login');
                 });
             });
