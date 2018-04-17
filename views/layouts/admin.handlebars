@@ -24,7 +24,7 @@ Description: This page is the admin page for admin users
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-default bg-dark fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-default bg-default fixed-top" id="mainNav">
     <a class="navbar-brand" href="/">Home Page</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -132,8 +132,8 @@ Description: This page is the admin page for admin users
                 </form>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal" style="color: red">
+                    <i class="fa fa-user" style="color: #1c7430">{{#if user}}{{user.firstName}}{{/if}}</i><i class="fa fa-fw fa-sign-out" style="color: red"></i>Logout</a>
             </li>
         </ul>
     </div>
@@ -175,7 +175,7 @@ Description: This page is the admin page for admin users
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-danger" href="/logout">Logout</a>
                 </div>
             </div>
         </div>

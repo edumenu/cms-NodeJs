@@ -7,6 +7,7 @@ const router = express.Router();  //Creating a router for our endpoints
 const Category = require('../../models/Category');   //Importing the category schema to be used
 const faker = require('faker');
 
+
 router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling all routes after the admin in the header
     req.app.locals.layout = 'admin';   //Changing the default layout to admin
     next();    //Next is used ot execute this function and then move to other routes

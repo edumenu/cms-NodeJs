@@ -8,11 +8,13 @@ const methodOverride = require('method-override');
 const upload = require('express-fileupload');
 const session = require('express-session');
 const flash = require('connect-flash');
+const {mongoDbUrl} = require('./config/database');
+const passport = require('passport');
 
  mongoose.Promise = global.Promise;
 
 //Connecting to the mongodb database
-mongoose.connect('mongodb://localhost:27017/cms').then((db)=>{
+mongoose.connect(mongoDbUrl).then((db)=>{
     console.log('MONGO connected!');
 }).catch(error=> console.log(error));
 
@@ -46,10 +48,19 @@ app.use(session({
 
 //Middleware for flash
 app.use(flash());
+//Middleware for passport
+app.use(passport.initialize());
+app.use(passport.session());
 //Local variables using middleware
 app.use((req, res, next)=>{
+    //User session message
+    res.locals.user = req.user || null;
     //Success message local variable
    res.locals.success_message = req.flash('success_message');
+   //Error message local variable
+   res.locals.error_message = req.flash('error_message');
+   //Error message for login
+   res.locals.error = req.flash('error');
    next();
 });
 

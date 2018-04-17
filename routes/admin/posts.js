@@ -9,6 +9,7 @@ const Post = require('../../models/Post');   //Importing the post schema to be u
 const Category = require('../../models/Category');   //Importing Category schema/model
 const {isEmpty, uploadDir} = require('../../helpers/upload-helper');
 const fs = require('fs');
+// const {userAthenticated} = require('../../helpers/authentication');
 // const path = require('path');
 
 router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling all routes after the admin in the header

@@ -1,4 +1,18 @@
-<!-- Success message  (admin index page) -->
+<!-- Error message -->
+{{#if error_message}}
+    <div class="alert alert-danger">
+        {{error_message}}
+    </div>
+{{/if}}
+
+<!-- Error message -->
+{{#if error}}
+    <div class="alert alert-danger">
+        {{error}}
+    </div>
+{{/if}}
+
+<!-- Success message -->
 {{#if success_message}}
     <div class="alert alert-success">
         {{success_message}}

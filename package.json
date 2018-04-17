@@ -23,6 +23,8 @@
     "faker": "^4.1.0",
     "method-override": "^2.3.10",
     "moment": "^2.22.0",
-    "mongoose": "^5.0.12"
+    "mongoose": "^5.0.12",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   }
 }

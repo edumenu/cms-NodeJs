@@ -6,6 +6,7 @@ const express = require('express');
 const router = express.Router();  //Creating a router for our endpoints
 const Post = require('../../models/Post');  //Requiring a new post instance
 const faker = require('faker');
+// const {userAthenticated} = require('../../helpers/authentication');
 
 router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling all routes after the admin in the header
     req.app.locals.layout = 'admin';   //Changing the default layout to admin
