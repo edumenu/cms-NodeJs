@@ -6,6 +6,7 @@ const express = require('express');
 const router = express.Router();  //Creating a router for our endpoints
 const Post = require('../../models/Post');   //Including Post model
 const Category = require('../../models/Category');   //Including Category model
+const Comment = require('../../models/Comment');   //Including Category model
 const User = require('../../models/User');   //Including User model
 const bcrypt = require('bcryptjs');     //Including bcrypt. Encryption for passwords
 const passport = require('passport');     //User authentication using passport.
@@ -119,11 +120,14 @@ router.post('/register', (req, res)=>{
 //Route for individual posts when read more is selected
 router.get('/post/:id', (req, res)=>{
     //Retrieving the particular post from the database
-    Post.findOne({_id: req.params.id}).then(post=>{
+    Post.findOne({_id: req.params.id})
+        .populate('user')
+        .populate({path: 'comments', populate: {path: 'user', model: 'users'}})       //Obtaining comments and user from database
+        .then(post=>{
+       //Obtaining categories
         Category.find({}).then(categories=>{
             res.render('home/post', {post: post, categories: categories});
         });
-        // res.render('home/post', {post: posts});
     });
 });
 

@@ -11,9 +11,10 @@ const Schema = mongoose.Schema;
 //Creating a new instance of a schema
 //title: this is the title of the post
 const PostSchema = new Schema({
-    // user: {
-    //
-    // },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
     category: {
         type: Schema.Types.ObjectId,    //This allows us to enter the ID of that specific model/document
         ref: 'categories'      //referencing the categories collection
@@ -43,12 +44,12 @@ const PostSchema = new Schema({
     date: {
         type: Date,
         default: Date.now()
-    }
-    // comments: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'comments'
-    // }]
-});
+    },
+    comments: [{                   //An array of comments IDs
+        type: Schema.Types.ObjectId,
+        ref: 'comments'
+    }]
+}, {usePushEach: true});   //This is a workaround for pushAll
 
 //Defining the name of the model and passing in the schema object
 //Exporting the schema to be used by the application

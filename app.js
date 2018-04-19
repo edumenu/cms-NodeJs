@@ -53,7 +53,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 //Local variables using middleware
 app.use((req, res, next)=>{
-    //User session message
+    //User session
     res.locals.user = req.user || null;
     //Success message local variable
    res.locals.success_message = req.flash('success_message');
@@ -69,12 +69,14 @@ const home = require('./routes/home/index'); //Including our routes in home/post
 const admin = require('./routes/admin/index'); //Including our routes in admin/post.handlebars
 const posts = require('./routes/admin/posts'); //Including our routes in admin/post.handlebars
 const categories = require('./routes/admin/categories'); //Including our routes in admin/categories.handlebars
+const comments = require('./routes/admin/comments'); //Including our routes in admin/comments.handlebars
 
 //Using routes
 app.use('/',home);  //Using middleware to execute our home/post.handlebars routes whenever a user accesses our root directory.
 app.use('/admin',admin);  //Using middleware to execute our admin/post.handlebars routes whenever a user accesses our admin root directory.
 app.use('/admin/posts',posts);  //Using middleware to execute our admin/posts.js routes whenever a user accesses our admin root directory.
 app.use('/admin/categories',categories);  //Using middleware to execute our admin/categories.js routes whenever a user accesses our admin root directory.
+app.use('/admin/comments',comments);  //Using middleware to execute our admin/comments.js routes whenever a user accesses our admin root directory.
 
 app.listen(4500, ()=>{
     console.log(`listen on port 4500`);

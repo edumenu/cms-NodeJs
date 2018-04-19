@@ -20,6 +20,7 @@ router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling 
 router.get('/',(req, res)=>{
     //Using the find function to retrieving all the posts from the database
     Post.find({})
+        .populate('comments._id')  //replacing the specified paths in the document with document(s) from other collection(s). Adding data from the category collection to the table
         .populate('category')
         .then(posts=>{
         //Display the admin post page with the values from the post database
@@ -29,10 +30,23 @@ router.get('/',(req, res)=>{
         console.log('Could not find any posts');
     });
 });
+
+router.get('/my-posts', (req, res)=>{
+    //Using the find function to retrieving all the posts from the database
+    Post.find({_id: req.user.id})
+        .populate('category')  //replacing the specified paths in the document with document(s) from other collection(s). Adding data from the category collection to the table
+        .then(posts=>{
+            //Display the admin post page with the values from the post database
+            //The first posts is an array that is going to contain all the posts
+            res.render('admin/my-posts', {posts: posts});
+        })
+});
 //Get request for user accessing the create post page
 router.get('/create',(req, res)=>{
     //Displaying all categories in the database to be displayed when creating a post
-    Category.find({}).then(categories=>{
+    Category.find({})
+        .populate('user')
+        .then(categories=>{
         res.render('admin/posts/create', {categories: categories}); //Passing in the vale when rendering the page
     });
 });
@@ -60,6 +74,7 @@ router.post('/create',(req, res)=>{
     }
     //Obtaining data from each field of the form
     const newPost = new Post({
+        user: req.user.id,
         title: req.body.title,
         status: req.body.status,
         allowComments: allowComments,
@@ -89,7 +104,6 @@ router.get('/edit/:id', (req,res)=>{
         Category.find({}).then(categories=>{
             res.render('admin/posts/edit', {post: post, categories: categories}); //Passing in the vale when rendering the page
         });
-        console.log(post);
     }).catch(error=>{
         console.log('Could not find the posts');
     });
@@ -109,6 +123,7 @@ router.put('/edit/:id', (req,res)=>{
             allowComments = false;
         }
         //Storing the values
+        post.user = req.user.id;
         post.title = req.body.title;
         post.status = req.body.status;
         post.allowComments = allowComments;
@@ -141,13 +156,20 @@ router.put('/edit/:id', (req,res)=>{
 //Delete request to delete selected Post
 router.delete('/:id', (req, res)=>{
     Post.findOne({_id: req.params.id})
+        .populate('comments')    //Populating with an array of comments
         .then(post=>{
             //Removes the deleted file from the directory
             fs.unlink(uploadDir + post.file, (err)=>{
-                req.flash('success_message', `${post.title} was successfully deleted!`);
-                post.remove();
-                // req.flash('success_message', 'Post was successfully deleted');
+                if(!post.comments.length < 1){
+                    post.comments.forEach(comment=>{
+                       comment.remove();
+                    });
+                }
+
+                post.remove().then(postRemoved=>{
+                    req.flash('success_message', `${post.title} was successfully deleted!`);
                 res.redirect('/admin/posts');
+                });
             });
         });
 });
