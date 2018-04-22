@@ -8,7 +8,6 @@ module.exports = {
     uploadDir: path.join(__dirname, '../public/uploads/'),
     isEmpty: function(obj){
         for(let key in obj){
-            //hasOwnProperty() method returns a boolean indicating whether the object has the specified property as its own property
             if(obj.hasOwnProperty(key)){
                 return false;
             }

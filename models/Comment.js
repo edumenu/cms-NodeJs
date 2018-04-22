@@ -1,6 +1,6 @@
 // Created by: Edem Dumenu
 // Date: 4/17/2018
-// Description: This page contains schema for users comments
+// Description: This page contains schema for user's comments
 
 const mongoose = require('mongoose');
 //Schema for the data
@@ -29,5 +29,5 @@ const CommentSchema = new Schema({
 
 //Defining the name of the model and passing in the schema object
 //Exporting the schema to be used by the application
-//categories: table name
+//comments: table name
 module.exports = mongoose.model('comments', CommentSchema);

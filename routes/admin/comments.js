@@ -12,8 +12,8 @@ router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling 
     req.app.locals.layout = 'admin';   //Changing the default layout to admin
     next();    //Next is used ot execute this function and then move to other routes
 });
-
-router.get('/', (req, res)=>{     //Get request for the root file "index" in the comments directory
+//Get request for the root file "index" in the comments directory
+router.get('/', (req, res)=>{
     //Using the find function to retrieving all the comments from the database
     Comment.find({user: '5ad393f5d680fe49a81fc16e'}).populate('user')
         .then(comments=>{
@@ -25,7 +25,6 @@ router.get('/', (req, res)=>{     //Get request for the root file "index" in the
 
 //Router for post comments
 router.post('/', (req,res)=>{
-
     //Finding the id for the post being commented on
     Post.findOne({_id: req.body.id}).then(post=>{
         //Creating a new comment instance
@@ -43,7 +42,6 @@ router.post('/', (req,res)=>{
     });
 });
 
-
 //Delete request to delete selected comment
 router.delete('/:id', (req, res)=>{
     Comment.remove({_id: req.params.id})
@@ -57,7 +55,7 @@ router.delete('/:id', (req, res)=>{
         });
 });
 
-//AN end point for the approve comment ajax request
+//An end point for the approve comment ajax request
 router.post('/approve-comment', (req,  res)=>{
     //Find and update the comment selected. Either to true or false
    Comment.findByIdAndUpdate(req.body.id, {$set: {approveComment: req.body.approveComment}}, (err, result)=>{
@@ -65,5 +63,5 @@ router.post('/approve-comment', (req,  res)=>{
        res.send(result);
     });
 });
-
+//Exporting module
 module.exports = router;

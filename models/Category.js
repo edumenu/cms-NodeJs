@@ -3,7 +3,6 @@
 // Date: 4/13/2018
 // Description: This page contains schema for our categories models
 
-
 const mongoose = require('mongoose');
 //Schema for the data
 const Schema = mongoose.Schema;

@@ -5,7 +5,6 @@
 const express = require('express');
 const router = express.Router();  //Creating a router for our endpoints
 const Category = require('../../models/Category');   //Importing the category schema to be used
-const faker = require('faker');
 
 
 router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling all routes after the admin in the header
@@ -21,13 +20,10 @@ router.get('/', (req, res)=>{
         //The first posts is an array that is going to contain all the posts
         res.render('admin/categories/index', {categories: categories});
     })
-
-    // res.render('admin/categories/index');
 });
 
 //Post request to obtain categories
 router.post('/create', (req, res)=>{
-
     const newCategory = new Category({
         name: req.body.name
     });
@@ -37,16 +33,14 @@ router.post('/create', (req, res)=>{
     }).catch(error=>{
         console.log('Category could not be saved! ' + error);
     });
-
-    // res.render('admin/categories/index');
 });
-
+//Get request to obtain category id and to display category page
 router.get('/edit/:id', (req, res)=>{
     Category.findOne({_id: req.params.id}).then(category=>{
         res.render('admin/categories/edit', {category: category});
     });
 });
-
+//Put request to edit category
 router.put('/edit/:id', (req, res)=>{
     Category.findOne({_id: req.params.id}).then(category=>{
         category.name = req.body.name;
@@ -56,12 +50,12 @@ router.put('/edit/:id', (req, res)=>{
         });
     });
 });
-
+//Delete request to delete a selected category
 router.delete('/:name/:id', (req, res)=>{
     Category.remove({_id: req.params.id}).then(result=>{
         req.flash('success_message', `${req.params.name} was successfully deleted!`);
         res.redirect('/admin/categories');
     });
 });
-
+//Exporting the module
 module.exports = router;

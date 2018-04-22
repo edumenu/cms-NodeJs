@@ -3,9 +3,8 @@
 // Date: 4/2/2018
 // Description: This page contains schema for our Post models
 
-
 const mongoose = require('mongoose');
-//Including slugs
+//Including slugs for pretty urls
 const URLSlugs = require('mongoose-url-slugs');
 //Schema for the data
 const Schema = mongoose.Schema;

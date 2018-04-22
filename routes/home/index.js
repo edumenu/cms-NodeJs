@@ -17,7 +17,7 @@ router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling 
     next();    //Next is used ot execute this function and then move to other routes
 });
 
-//Route the to root
+//Route to the root home page
 router.get('/', (req, res)=>{
     const perPage = 10;  //Number of posts per page
     const page = req.query.page || 1;   //Obtaining the current page
@@ -89,21 +89,18 @@ router.post('/login', (req, res, next)=>{
         successRedirect: '/admin',       //Redirect when user succeeds
         failureRedirect: '/login',      //Redirect when user fails to login
         failureFlash: true              //flash message
-
     })(req, res, next);
-
 });
-
+//Get request for logout
 router.get('/logout', function(req, res){
     req.logout();
     res.redirect('/login');
 });
-
 //Route to the register page
 router.get('/register', (req, res)=>{
     res.render('home/register');
 });
-//Post requires fro registration page
+//Post requires for registration page
 router.post('/register', (req, res)=>{
         User.findOne({email: req.body.email}).then(user=>{
         if(!user){

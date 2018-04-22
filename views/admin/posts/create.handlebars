@@ -1,19 +1,15 @@
 <!--
 Created by: Edem Dumenu
 Date: 4/2/2018
-Description: This page is for sending post methods using the form.
+Description: This page is for creating and sending post methods using the form.
 -->
 
 <h1>Create Post</h1>
 
 {{#each errors}}
-
     <div class="alert alert-danger">
-
         {{message}}
-
     </div>
-
 {{/each}}
 
 <!-- enctype="multipart/form-data": when your form includes any <input type="file"> -->
@@ -33,9 +29,7 @@ Description: This page is for sending post methods using the form.
         <select name="category" id="status" class="form-control">
 
             {{#each categories}}
-
                 <option value="{{id}}">{{name}}</option>
-
             {{/each}}
 
         </select>

@@ -1,3 +1,7 @@
+//Created by: Edem Dumenu
+//Date: 3/19/2018
+//Description: This is the app.js page. This handles all connections, loading and using routes
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -11,7 +15,7 @@ const flash = require('connect-flash');
 const {mongoDbUrl} = require('./config/database');
 const passport = require('passport');
 
- mongoose.Promise = global.Promise;
+ mongoose.Promise = global.Promise;     //Global promise
 
 //Connecting to the mongodb database
 mongoose.connect(mongoDbUrl).then((db)=>{
@@ -25,27 +29,24 @@ const {select, generateDate, commentCounter, paginate} = require('./helpers/hand
 
 //Setting up and specifying the template engine to be used
 //defaultLayout: is a key and it used to set the default home page
-//
 app.engine('handlebars',exphbs({defaultLayout: 'home', helpers: {select: select, generateDate: generateDate, commentCounter: commentCounter, paginate: paginate}}));
 //setting our view engine for the application. Letting the application know the type of engine
 app.set('view engine','handlebars');
 
+//******* Middleware *********
 //Uploading middleware for uploading files
 app.use(upload());
-
 //Body Paser
 app.use(bodyPaser.urlencoded({extended: true}));
 app.use(bodyPaser.json());
 //Method Override for put request
 app.use(methodOverride('_method'));
-
 //Sessions Middleware
 app.use(session({
     secret: 'edem123',
     resave: true,
     saveUninitialized: true
 }));
-
 //Middleware for flash
 app.use(flash());
 //Middleware for passport
@@ -64,6 +65,7 @@ app.use((req, res, next)=>{
    next();
 });
 
+
 //Loading routes
 const home = require('./routes/home/index'); //Including our routes in home/post.handlebars
 const admin = require('./routes/admin/index'); //Including our routes in admin/post.handlebars
@@ -78,6 +80,7 @@ app.use('/admin/posts',posts);  //Using middleware to execute our admin/posts.js
 app.use('/admin/categories',categories);  //Using middleware to execute our admin/categories.js routes whenever a user accesses our admin root directory.
 app.use('/admin/comments',comments);  //Using middleware to execute our admin/comments.js routes whenever a user accesses our admin root directory.
 
+//Listening for a connection
 app.listen(4500, ()=>{
-    console.log(`listen on port 4500`);
+    // console.log(`listen on port 4500`);
 });

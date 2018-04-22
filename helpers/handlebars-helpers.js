@@ -4,17 +4,17 @@
 const moment = require('moment');
 
 module.exports = {
-    //Creating a function called select
+    //Function selects an option obtain from the database
     select: function(selected, options){
         //Returning back the option tag with the specific status related to the post (selected)
         // with regular expressions
        return options.fn(this).replace(new RegExp('value=\"'+ selected + '\"'), '$&selected="selected"');
     },
-    //Function for create a date format
+    //generateDate formats the date
     generateDate: function(date, format){
       return moment(date).format(format);
     },
-    //Function for counting the number of comments
+    //commentCounter return the number of comments
     commentCounter: function(comments){
       return comments.length;
     },
@@ -51,17 +51,13 @@ module.exports = {
             if(i === Number(options.hash.current) + 4 && i < options.hash.pages){
                 output += `<li class="page-item"><a class="page-link">...</a></li>`;
             }
-            //Maybe the dots
         }
-        //Last button
+        //Last button for pagination
         if(options.hash.current === options.hash.pages){
             output += `<li class="page-item disabled"><a class="page-link">Last</a></li>`;
         }else{
             output += `<li class="page-item"><a href="?page=${options.hash.pages}" class="page-link">Last</a></li>`;
         }
-
-
         return output;
-        // console.log(options.hash.current);
     }
 };

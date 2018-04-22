@@ -7,13 +7,9 @@ Description: This page is for sending post methods using the form.
 <h1>Edit Post</h1>
 
 {{#each errors}}
-
     <div class="alert alert-danger">
-
         {{message}}
-
     </div>
-
 {{/each}}
 
 <form action="/admin/posts/edit/{{post.id}}?_method=PUT" method="post" enctype="multipart/form-data">

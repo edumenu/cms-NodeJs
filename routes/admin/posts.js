@@ -9,8 +9,6 @@ const Post = require('../../models/Post');   //Importing the post schema to be u
 const Category = require('../../models/Category');   //Importing Category schema/model
 const {isEmpty, uploadDir} = require('../../helpers/upload-helper');
 const fs = require('fs');
-// const {userAthenticated} = require('../../helpers/authentication');
-// const path = require('path');
 
 router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling all routes after the admin in the header
     req.app.locals.layout = 'admin';   //Changing the default layout to admin
@@ -20,7 +18,7 @@ router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling 
 router.get('/',(req, res)=>{
     //Using the find function to retrieving all the posts from the database
     Post.find({})
-        .populate('comments._id')  //replacing the specified paths in the document with document(s) from other collection(s). Adding data from the category collection to the table
+        .populate('comments._id')  //replacing the specified paths in the document with document(s) from other collection(s). Adding data from the comments collection to the table
         .populate('category')
         .then(posts=>{
         //Display the admin post page with the values from the post database
@@ -30,7 +28,7 @@ router.get('/',(req, res)=>{
         console.log('Could not find any posts');
     });
 });
-
+//Get request for displaying only posts from the logged in user
 router.get('/my-posts', (req, res)=>{
     //Using the find function to retrieving all the posts from the database
     Post.find({user: req.user.id})
@@ -82,8 +80,6 @@ router.post('/create',(req, res)=>{
         category: req.body.category,
         file: filename
     });
-    // console.log(req.body);
-
     //Redirect user when the post is saved
     newPost.save().then(savedPost=>{
         req.flash('success_message', `${savedPost.title} was successfully created!`);
@@ -115,7 +111,6 @@ router.put('/edit/:id', (req,res)=>{
     Post.findOne({id: req.params.id}).then(post=>{
         //Default image when image is not selected
         let filename = 'default.png';
-
         //Assigning the value of allowComments
         if(req.body.allowComments){
             allowComments = true;
@@ -141,7 +136,6 @@ router.put('/edit/:id', (req,res)=>{
                 if(err) throw err;
             });
         }
-
         //Sending the new data to the database
         post.save().then(updatedPost=>{
             req.flash('success_message', `${updatedPost.title} was successfully updated!`);
@@ -164,7 +158,6 @@ router.delete('/:id', (req, res)=>{
                        comment.remove();
                     });
                 }
-
                 post.remove().then(postRemoved=>{
                     req.flash('success_message', `${post.title} was successfully deleted!`);
                 res.redirect('/admin/posts/my-posts');

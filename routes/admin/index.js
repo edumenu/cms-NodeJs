@@ -1,6 +1,6 @@
 //Created by: Edem Dumenu
 //Date: 3/19/2018
-//Description: This page handles  routes for admin pages
+//Description: This page handles routes for admin pages
 
 const express = require('express');
 const router = express.Router();  //Creating a router for our endpoints
@@ -9,7 +9,6 @@ const Comment = require('../../models/Comment');  //Requiring a new comment inst
 const Category = require('../../models/Category');  //Requiring a new category instance
 const User = require('../../models/User');  //Requiring a new user instance
 const faker = require('faker');
-// const {userAthenticated} = require('../../helpers/authentication');
 
 router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling all routes after the admin in the header
     req.app.locals.layout = 'admin';   //Changing the default layout to admin
@@ -18,7 +17,7 @@ router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling 
 
 //Route the to root
 router.get('/', (req, res)=>{
-    //Creating an array of queries
+    //Creating an array of queries to count each category to be displayed
     const promise = [
         Post.count().exec(),
         Category.count().exec(),
@@ -28,7 +27,6 @@ router.get('/', (req, res)=>{
     //Executing the all the promises
     Promise.all(promise).then(([postCount, categoryCount, commentCount, userCount ])=>{
         res.render('admin/index', {postCount: postCount, commentCount: commentCount ,categoryCount: categoryCount, userCount: userCount});  //Passing the data as an object
-
     });
 });
 
