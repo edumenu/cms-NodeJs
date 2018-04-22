@@ -80,7 +80,8 @@ app.use('/admin/posts',posts);  //Using middleware to execute our admin/posts.js
 app.use('/admin/categories',categories);  //Using middleware to execute our admin/categories.js routes whenever a user accesses our admin root directory.
 app.use('/admin/comments',comments);  //Using middleware to execute our admin/comments.js routes whenever a user accesses our admin root directory.
 
+const port = process.env.PORT || 4500;
 //Listening for a connection
-app.listen(4500, ()=>{
-    // console.log(`listen on port 4500`);
+app.listen(port, ()=>{
+    console.log(`listen on port ${port}`);
 });
