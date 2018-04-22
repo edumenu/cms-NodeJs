@@ -21,12 +21,12 @@ mongoose.connect(mongoDbUrl).then((db)=>{
 //Accepting static file/pages, in this case, the css and js pages(middleware)
 app.use(express.static(path.join(__dirname,'public')));
 //Registering the function 'select' and 'GenerateTime' in the handlebars-helpers
-const {select, generateDate} = require('./helpers/handlebars-helpers');
+const {select, generateDate, commentCounter, paginate} = require('./helpers/handlebars-helpers');
 
 //Setting up and specifying the template engine to be used
 //defaultLayout: is a key and it used to set the default home page
 //
-app.engine('handlebars',exphbs({defaultLayout: 'home', helpers: {select: select, generateDate: generateDate}}));
+app.engine('handlebars',exphbs({defaultLayout: 'home', helpers: {select: select, generateDate: generateDate, commentCounter: commentCounter, paginate: paginate}}));
 //setting our view engine for the application. Letting the application know the type of engine
 app.set('view engine','handlebars');
 

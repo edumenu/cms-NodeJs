@@ -5,6 +5,9 @@
 const express = require('express');
 const router = express.Router();  //Creating a router for our endpoints
 const Post = require('../../models/Post');  //Requiring a new post instance
+const Comment = require('../../models/Comment');  //Requiring a new comment instance
+const Category = require('../../models/Category');  //Requiring a new category instance
+const User = require('../../models/User');  //Requiring a new user instance
 const faker = require('faker');
 // const {userAthenticated} = require('../../helpers/authentication');
 
@@ -15,8 +18,18 @@ router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling 
 
 //Route the to root
 router.get('/', (req, res)=>{
+    //Creating an array of queries
+    const promise = [
+        Post.count().exec(),
+        Category.count().exec(),
+        Comment.count().exec(),
+        User.count().exec()
+    ];
+    //Executing the all the promises
+    Promise.all(promise).then(([postCount, categoryCount, commentCount, userCount ])=>{
+        res.render('admin/index', {postCount: postCount, commentCount: commentCount ,categoryCount: categoryCount, userCount: userCount});  //Passing the data as an object
 
-    res.render('admin/index');
+    });
 });
 
 //Generating fake posts for the main admin page
@@ -30,6 +43,7 @@ router.post('/generate-fake-post', (req, res)=>{
         post.status = 'public';
         post.allowComments = faker.random.boolean();
         post.body = faker.lorem.sentence();
+        post.file = faker.image.image();
         post.slug = faker.name.title();
         post.save(function(err){
             if (err) throw err;

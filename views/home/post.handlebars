@@ -2,27 +2,27 @@
     <!-- Post Content Column -->
     <div class="col-md-8">
         <!-- Title -->
-        <h1 class="my-5">{{post.title}}</h1>
+        <h1 class="my-5 text-white">{{post.title}}</h1>
         <!-- Author -->
-        <p class="lead">
+        <p class="lead text-white">
             by
             <a href="#">{{post.user.firstName}}{{post.user.lastName}}</a>
         </p>
         <hr>
         <!-- Date/Time -->
-        <p>Posted on {{generateDate date "MMMM Do YYYY"}}</p>
+        <p class="text-white">Posted on {{generateDate date "MMMM Do YYYY"}}</p>
         <hr>
         <!-- Preview Image -->
         <img class="img-fluid rounded" src="/uploads/{{post.file}}" alt="">
         <hr>
         <!-- Post Content -->
-        <p>{{post.body}}</p>
+        <p  class="text-white">{{post.body}}</p>
         <hr>
         {{#if user}}
 
             {{#if post.allowComments}}
                 <!-- Comments Form -->
-                <div class="card my-4">
+                <div class="card my-4 bg-dark text-white">
                     <h5 class="card-header">Leave a Comment:</h5>
                     <div class="card-body">
                         <form action="/admin/comments" method="post">
@@ -38,14 +38,14 @@
 
             {{else}}
 
-                <h2>Comments not allowed for this</h2>
+                <h2 class="text-white">Comments not allowed for this</h2>
                 <br>
                 <hr>
             {{/if}}
 
         {{else}}
 
-            You need to login to comment <a href="/login">Login</a>
+            <h1 class="text-white">You need to login to comment <a href="/login">Login</a></h1>
             <br>
             <hr>
         {{/if}}
@@ -55,8 +55,8 @@
             <!-- Single Comment -->
             <div class="media mb-4">
                 <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                    <h5 class="mt-0">{{user.firstName}} {{user.lastName}}</h5>
+                <div class="media-body text-white">
+                    <h5 class="mt-0 text-white">{{user.firstName}} {{user.lastName}}</h5>
 
                     {{body}}
 

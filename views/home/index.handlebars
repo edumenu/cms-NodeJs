@@ -3,22 +3,19 @@
     <!-- Blog Entries Column -->
     <div class="col-md-8">
 
-        <h1 class="my-4">Home
-
-        </h1>
+        <h1 class="my-4 text-white">Home </h1>
         {{#each posts}}
-
             <!-- Blog Post -->
-            <div class="card mb-4">
+            <div class="card mb-4 bg-dark text-white">
                 <img class="card-img-top" src="/uploads/{{file}}" alt="Responsive image">
                 <div class="card-body">
                     <h2 class="card-title">{{title}}</h2>
                     <p class="card-text">{{body}}</p>
-                    <a href="/post/{{id}}" class="btn btn-primary">Read More &rarr;</a>
+                    <a href="/post/{{slug}}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                     Posted on {{generateDate date "MMMM Do YYYY"}} by
-                    <a href="#">Start Bootstrap</a>
+                    <a href="#">{{user.firstName}} {{user.lastName}}</a>
                 </div>
             </div>
 
@@ -29,11 +26,8 @@
             {{#paginate current=current pages=pages}}{{/paginate}}
 
         </ul>
-
     </div>
-
     <!-- Sidebar Widgets Column -->
     {{> home/sidebar}}
-
 </div>
 <!-- /.row -->

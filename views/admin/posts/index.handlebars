@@ -21,8 +21,6 @@ Description: This page displays all posts from the database
         <th>Allow Comments</th>
         <th>View Post</th>
         <th>Date</th>
-        <th>Edit</th>
-        <th>Delete</th>
     </tr>
     </thead>
 
@@ -36,15 +34,15 @@ Description: This page displays all posts from the database
             <td>{{title}}</td>
             <td>{{status}}</td>
             <td>{{category.name}}</td>
-            <td>{{comments}}</td>
+            <td>{{commentCounter comments}}</td>
             <td>{{allowComments}}</td>
-            <td><a href="/post/{{id}}">view post</a></td>
+            <td><a href="/post/{{slug}}">view post</a></td>
             <td>{{generateDate date 'MMMM Do YYYY'}}</td> <!--date: first parameter, 'MMMM Do YYYY': second parameter. The format of the date -->
             <!-- Obtaining the post id when user clicks the edit button-->
-            <td><a href="/admin/posts/edit/{{id}}" class="btn btn-success">Edit</a></td>
-            <td><form action="/admin/posts/{{id}}?_method=DELETE" method="post">
-                <button type="submit" class="btn-danger">Delete</button>
-            </form></td>
+            <!--<td><a href="/admin/posts/edit/{{id}}" class="btn btn-success">Edit</a></td>-->
+            <!--<td><form action="/admin/posts/{{id}}?_method=DELETE" method="post">-->
+                <!--<button type="submit" class="btn-danger">Delete</button>-->
+            <!--</form></td>-->
         </tr>
     {{/each}}
     <!-- End of loop-->

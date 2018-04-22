@@ -5,6 +5,8 @@
 
 
 const mongoose = require('mongoose');
+//Including slugs
+const URLSlugs = require('mongoose-url-slugs');
 //Schema for the data
 const Schema = mongoose.Schema;
 //Defining the schema for our data
@@ -23,9 +25,9 @@ const PostSchema = new Schema({
         type: String,
         required: true
     },
-    // slug: {
-    //     type: String
-    // },
+    slug: {      //Representation of some data
+        type: String
+    },
     status:{
         type: String,
         default: 'public'
@@ -50,6 +52,9 @@ const PostSchema = new Schema({
         ref: 'comments'
     }]
 }, {usePushEach: true});   //This is a workaround for pushAll
+
+//Plugins are used to add last modified functionality
+PostSchema.plugin(URLSlugs('title', {field: 'slug'}));
 
 //Defining the name of the model and passing in the schema object
 //Exporting the schema to be used by the application

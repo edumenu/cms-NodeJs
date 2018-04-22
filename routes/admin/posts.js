@@ -33,12 +33,12 @@ router.get('/',(req, res)=>{
 
 router.get('/my-posts', (req, res)=>{
     //Using the find function to retrieving all the posts from the database
-    Post.find({_id: req.user.id})
+    Post.find({user: req.user.id})
         .populate('category')  //replacing the specified paths in the document with document(s) from other collection(s). Adding data from the category collection to the table
         .then(posts=>{
             //Display the admin post page with the values from the post database
             //The first posts is an array that is going to contain all the posts
-            res.render('admin/my-posts', {posts: posts});
+            res.render('admin/posts/my-posts', {posts: posts});
         })
 });
 //Get request for user accessing the create post page
@@ -112,7 +112,7 @@ router.get('/edit/:id', (req,res)=>{
 //Put request to edit post with new data
 router.put('/edit/:id', (req,res)=>{
     //Using the findOne function to search for the particular post
-    Post.findOne({_id: req.params.id}).then(post=>{
+    Post.findOne({id: req.params.id}).then(post=>{
         //Default image when image is not selected
         let filename = 'default.png';
 
@@ -145,11 +145,10 @@ router.put('/edit/:id', (req,res)=>{
         //Sending the new data to the database
         post.save().then(updatedPost=>{
             req.flash('success_message', `${updatedPost.title} was successfully updated!`);
-            res.redirect('/admin/posts');
-            console.log(updatedPost);
+            res.redirect('/admin/posts/my-posts');
         });
     }).catch(error=>{
-        console.log('Could not find the posts');
+        console.log('Could not find the posts. Error: ' + error);
     });
 });
 
@@ -168,7 +167,7 @@ router.delete('/:id', (req, res)=>{
 
                 post.remove().then(postRemoved=>{
                     req.flash('success_message', `${post.title} was successfully deleted!`);
-                res.redirect('/admin/posts');
+                res.redirect('/admin/posts/my-posts');
                 });
             });
         });

@@ -1,0 +1,121 @@
+<!--
+Created by: Edem Dumenu
+Date: 4/19/2018
+Description: This page is the footer for the admin page
+-->
+
+<footer class="sticky-footer">
+    <div class="container">
+        <div class="text-center">
+            <small>Copyright © Your Website 2017</small>
+        </div>
+    </div>
+</footer>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+</a>
+<!-- Logout Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger" href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript-->
+<script src="/js/jquery/jquery.min.js"></script>
+<script src="/js/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="/js/jquery-easing/jquery.easing.min.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="/js/admin/sb-admin.min.js"></script>
+<!-- Bootstrap switch-->
+<script src="/js/admin/bootstrap-switch.min.js"></script>
+<!-- Toastr.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<!-- Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+<script>
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Post", "Comments", "Categories", "Users", "Purple", "Orange"],
+            datasets: [{
+                label: 'CMS data',
+                data: [{{postCount}}, {{commentCount}}, {{categoriesCount}}, {{userCount}}, 20, 30],
+                backgroundColor: [
+                    'rgba(255,0,0,0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)',
+                    'rgba(255, 159, 64, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+<script>
+    //Bootstrap switch
+    $("[name='approveComment']").bootstrapSwitch();
+
+    $(document).ready(()=>{
+        //Event handler to listen for bootstrap switch
+        $("[name='approveComment']").on('switchChange.bootstrapSwitch', function(e, data){
+            //Obtaining the data-id
+            const id = $(this).attr('data-id');
+
+            //Ajax request for the switch button
+           $.ajax({
+               //type: specifying the type of request POST or GET
+               type: "POST",
+               //Specifies the URL to send the request to.
+               url: '/admin/comments/approve-comment',
+               //data: specifies the data to be sent to the server
+               data: {id: id, approveComment: data},
+               //cache: A Boolean value indicating whether the browser should cache the requested pages
+               cache: false,
+               //success: a function to be run when the request succeeds
+               success: function (data) {
+                   //// Display a success toast, with a title
+                   toastr.success(`was updated!`, `${data._id}`, {timeOut: 2000});
+               }
+           })
+
+        });
+
+    });
+
+</script>

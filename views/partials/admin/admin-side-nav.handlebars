@@ -1,3 +1,9 @@
+<!--
+Created by: Edem Dumenu
+Date: 3/19/2018
+Description: This page is the side-navigation for the admin page
+-->
+
 <ul class="navbar-nav navbar-sidenav navbar-default bg-dark" id="exampleAccordion">
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
         <a class="nav-link" href="/admin">
@@ -14,6 +20,11 @@
             <li>
                 <a href="/admin/posts">All posts</a>
             </li>
+            {{#if user}}
+            <li>
+                <a href="/admin/posts/my-posts">My posts</a>
+            </li>
+            {{/if}}
             <li>
                 <a href="/admin/posts/create">Create Post</a>
             </li>

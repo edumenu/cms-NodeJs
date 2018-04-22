@@ -15,7 +15,7 @@ router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling 
 
 router.get('/', (req, res)=>{     //Get request for the root file "index" in the comments directory
     //Using the find function to retrieving all the comments from the database
-    Comment.find().populate('user')
+    Comment.find({user: '5ad393f5d680fe49a81fc16e'}).populate('user')
         .then(comments=>{
             //Display the comments page with the values from the post database
             //The first comments is an array that is going to contain all the comments
@@ -36,6 +36,7 @@ router.post('/', (req,res)=>{
        post.comments.push(newComment);      //Pushing the comment into the comments array contained in each Post
         post.save().then(savedPost=>{       //Saving the comment into the post collection
             newComment.save().then(savedComment=>{      //Saving the comment in the comment collection
+                req.flash('success_message',`Your comment will be reviewed in a second!`);
                 res.redirect(`/post/${post.id}`);
             })
         });
@@ -56,5 +57,13 @@ router.delete('/:id', (req, res)=>{
         });
 });
 
+//AN end point for the approve comment ajax request
+router.post('/approve-comment', (req,  res)=>{
+    //Find and update the comment selected. Either to true or false
+   Comment.findByIdAndUpdate(req.body.id, {$set: {approveComment: req.body.approveComment}}, (err, result)=>{
+       if(err) return err;
+       res.send(result);
+    });
+});
 
 module.exports = router;

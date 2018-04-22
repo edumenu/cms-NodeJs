@@ -19,11 +19,25 @@ router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling 
 
 //Route the to root
 router.get('/', (req, res)=>{
+    const perPage = 10;  //Number of posts per page
+    const page = req.query.page || 1;   //Obtaining the current page
+
     //Displaying all the posts from the database
-    Post.find({}).then(posts=>{
-        Category.find({}).then(categories=>{
-            res.render('home/index', {posts: posts, categories: categories});
-        });
+    Post.find({})
+        .skip((perPage * page) - perPage)     //Specifying the number of documents to skip
+        .limit(perPage)       //Limiting the number of results to return
+        .populate('user')
+        .then(posts=>{
+            Post.count().then(postCount=>{
+                Category.find({}).then(categories=>{
+                    res.render('home/index', {
+                        posts: posts,
+                        categories: categories,
+                        current: parseInt(page),
+                        pages: Math.ceil(postCount / perPage)
+                    });
+                });
+            });
     }).catch(noPost=>{
         alert('There are no posts. Error: ' + noPost);
     });
@@ -118,11 +132,12 @@ router.post('/register', (req, res)=>{
     });
 });
 //Route for individual posts when read more is selected
-router.get('/post/:id', (req, res)=>{
+router.get('/post/:slug', (req, res)=>{
     //Retrieving the particular post from the database
-    Post.findOne({_id: req.params.id})
+    Post.findOne({slug: req.params.slug})
         .populate('user')
-        .populate({path: 'comments', populate: {path: 'user', model: 'users'}})       //Obtaining comments and user from database
+        //match: Filtering the data before being displayed. Displaying only approved comments
+        .populate({path: 'comments', match: {approveComment: true}, populate: {path: 'user', model: 'users'}})       //Obtaining comments and user from database
         .then(post=>{
        //Obtaining categories
         Category.find({}).then(categories=>{
