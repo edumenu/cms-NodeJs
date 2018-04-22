@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b48e6d3-982f-4d32-a6a3-7fe4036b6b42" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/authentication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/handlebars-helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/handlebars-helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/upload-helper.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/upload-helper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/categories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/comments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/categories/edit.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/categories/edit.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/categories/index.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/categories/index.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/comments/index.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/comments/index.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/index.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/index.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/posts/create.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/posts/create.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/posts/edit.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/posts/edit.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/posts/index.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/posts/index.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/posts/my-posts.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/posts/my-posts.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home/index.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/index.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home/post.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/post.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/admin.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/admin.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/home.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/home.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/admin/footer.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/admin/footer.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/home/form-msgs.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/home/form-msgs.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/home/home-nav.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/home/home-nav.handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/home/sidebar.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/home/sidebar.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -53,8 +24,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
+            <state relative-caret-position="1480">
+              <caret line="76" column="28" lean-forward="true" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -62,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload-helper.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/helpers/upload-helper.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/admin/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+            <state relative-caret-position="285">
+              <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -74,11 +45,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.handlebars" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/partials/home/sidebar.handlebars">
+      <file leaf-file-name="database.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/database.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="69" selection-start-line="3" selection-start-column="69" selection-end-line="3" selection-end-column="69" />
+            <state relative-caret-position="120">
+              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.handlebars" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/admin/index.handlebars">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -123,7 +106,6 @@
         <option value="$PROJECT_DIR$/public/css/blog-post.css" />
         <option value="$PROJECT_DIR$/views/home/login.handlebars" />
         <option value="$PROJECT_DIR$/views/partials/home/footer.handlebars" />
-        <option value="$PROJECT_DIR$/config/database.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/helpers/authentication.js" />
         <option value="$PROJECT_DIR$/helpers/handlebars-helpers.js" />
@@ -153,6 +135,7 @@
         <option value="$PROJECT_DIR$/views/partials/home/form-msgs.handlebars" />
         <option value="$PROJECT_DIR$/views/partials/home/home-nav.handlebars" />
         <option value="$PROJECT_DIR$/views/partials/home/sidebar.handlebars" />
+        <option value="$PROJECT_DIR$/config/database.js" />
       </list>
     </option>
   </component>
@@ -165,7 +148,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="793" />
     <option name="width" value="814" />
     <option name="height" value="907" />
@@ -186,25 +169,35 @@
             <path>
               <item name="cms2" type="b2602c69:ProjectViewProjectNode" />
               <item name="cms2" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cms2" type="b2602c69:ProjectViewProjectNode" />
               <item name="cms2" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cms2" type="b2602c69:ProjectViewProjectNode" />
               <item name="cms2" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cms2" type="b2602c69:ProjectViewProjectNode" />
               <item name="cms2" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cms2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cms2" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cms2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cms2" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -274,12 +267,12 @@
       <workItem from="1524106554122" duration="30503000" />
       <workItem from="1524280254912" duration="9680000" />
       <workItem from="1524319271839" duration="619000" />
-      <workItem from="1524319950079" duration="18207000" />
+      <workItem from="1524319950079" duration="19478000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242369000" />
+    <option name="totallyTimeSpent" value="243640000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -403,16 +396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/helpers/authentication.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -427,16 +410,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -511,16 +484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/admin/posts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -587,13 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-435">
           <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/index.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -693,8 +649,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/home/sidebar.handlebars">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="69" selection-start-line="3" selection-start-column="69" selection-end-line="3" selection-end-column="69" />
+        <state relative-caret-position="-155">
+          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1480">
+          <caret line="76" column="28" lean-forward="true" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin/index.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
