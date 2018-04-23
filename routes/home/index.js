@@ -136,7 +136,6 @@ router.get('/post/:slug', (req, res)=>{
         //match: Filtering the data before being displayed. Displaying only approved comments
         .populate({path: 'comments', match: {approveComment: true}, populate: {path: 'user', model: 'users'}})       //Obtaining comments and user from database
         .then(post=>{
-            console.log(post);
        //Obtaining categories
         Category.find({}).then(categories=>{
             res.render('home/post', {post: post, categories: categories});
