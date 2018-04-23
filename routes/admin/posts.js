@@ -83,7 +83,6 @@ router.post('/create',(req, res)=>{
     //Redirect user when the post is saved
     newPost.save().then(savedPost=>{
         req.flash('success_message', `${savedPost.title} was successfully created!`);
-        console.log(savedPost);
         res.redirect('/admin/posts')
     }).catch(error=>{
         console.log('could not save post');
@@ -108,7 +107,7 @@ router.get('/edit/:id', (req,res)=>{
 //Put request to edit post with new data
 router.put('/edit/:id', (req,res)=>{
     //Using the findOne function to search for the particular post
-    Post.findOne({id: req.params.id}).then(post=>{
+    Post.findOne({_id: req.params.id}).then(post=>{
         //Default image when image is not selected
         let filename = 'default.png';
         //Assigning the value of allowComments
