@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b48e6d3-982f-4d32-a6a3-7fe4036b6b42" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home/index.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/index.handlebars" afterDir="false" />
-    </list>
+    <list default="true" id="7b48e6d3-982f-4d32-a6a3-7fe4036b6b42" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -60,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/views/home/index.handlebars">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -176,7 +172,7 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="793" />
+    <option name="x" value="-7" />
     <option name="width" value="814" />
     <option name="height" value="907" />
   </component>
@@ -312,12 +308,12 @@
       <workItem from="1524106554122" duration="30503000" />
       <workItem from="1524280254912" duration="9680000" />
       <workItem from="1524319271839" duration="619000" />
-      <workItem from="1524319950079" duration="35701000" />
+      <workItem from="1524319950079" duration="36583000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="259863000" />
+    <option name="totallyTimeSpent" value="260745000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -329,17 +325,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="793" y="0" width="814" height="907" extended-state="0" />
+    <frame x="-7" y="0" width="814" height="907" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49468085" visible="true" weight="0.20489691" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49468085" visible="true" weight="0.20489691" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32896462" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.5053192" side_tool="true" weight="0.12547529" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.28116712" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.28116712" />
       <window_info id="Favorites" order="2" sideWeight="0.50265956" side_tool="true" weight="0.12484157" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -738,7 +734,7 @@
     <entry file="file://$PROJECT_DIR$/views/home/index.handlebars">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
         </state>
       </provider>
     </entry>
