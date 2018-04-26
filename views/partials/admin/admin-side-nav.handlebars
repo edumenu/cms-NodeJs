@@ -67,10 +67,13 @@ Description: This page is the side-navigation for the admin page
             <span class="nav-link-text">Categories</span>
         </a>
     </li>
+    {{#if user}}
     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
         <a class="nav-link" href="/admin/comments">
             <i class="fa fa-fw fa-comment"></i>
             <span class="nav-link-text">Comments</span>
+
         </a>
     </li>
+            {{/if}}
 </ul>
