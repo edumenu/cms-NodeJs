@@ -15,7 +15,7 @@ router.all('/*',(req, res, next)=>{ //**Overriding default home page** Handling 
 //Get request for the root file "index" in the comments directory
 router.get('/', (req, res)=>{
     //Using the find function to retrieving all the comments from the database
-    Comment.find({user: '5ad393f5d680fe49a81fc16e'}).populate('user')
+    Comment.find({user: req.user.id}).populate('user')
         .then(comments=>{
             //Display the comments page with the values from the post database
             //The first comments is an array that is going to contain all the comments
